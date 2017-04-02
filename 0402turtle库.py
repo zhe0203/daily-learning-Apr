@@ -54,7 +54,6 @@ import turtle
 # turtle.goto(100,-100)
 # turtle.write('Crossin编程教室',move=False)
 
-
 turtle.speed(10)
 turtle.penup()
 turtle.goto(100,300)
@@ -62,7 +61,6 @@ turtle.pencolor('#FF6EB4')
 turtle.pensize(3)
 
 # 猪鼻子
-
 turtle.fillcolor('#FFE4E1')
 turtle.begin_fill()
 turtle.pendown()
@@ -95,14 +93,10 @@ turtle.circle(200,10)
 
 turtle.right(10)
 turtle.circle(100,20)
-
 turtle.circle(50,10)
 turtle.circle(200,20)
-
 turtle.circle(160,20)
 turtle.circle(120,30)
-
-
 turtle.circle(60,30)
 
 turtle.circle(250,30)
@@ -130,18 +124,14 @@ turtle.pendown()
 turtle.dot(15, "#1F1F1F")
 turtle.penup()
 
-
 turtle.goto(0,230)
 turtle.pendown()
 turtle.circle(18,360)
 turtle.penup()
-
-
 turtle.goto(-15,245)
 turtle.pendown()
 turtle.dot(15, "#1F1F1F")
 turtle.penup()
-
 
 # 嘴巴
 turtle.goto(-120,80)
@@ -261,7 +251,6 @@ turtle.pendown()
 turtle.left(30)
 turtle.forward(40)
 turtle.penup()
-
 turtle.goto(100,-65)
 turtle.pendown()
 turtle.right(65)
@@ -280,5 +269,4 @@ turtle.circle(20,-120)
 turtle.circle(20,-60)
 turtle.circle(100,-10)
 turtle.penup()
-
 turtle.done()
