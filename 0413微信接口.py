@@ -6,7 +6,6 @@ import json
 
 # # 普通登陆
 # itchat.auto_login(hotReload=True)
-# print(itchat.search_chatrooms(name=u'亲们'))
 # 运行并保持在线状态
 # itchat.run()
 # # itchat也提供段时间内断线重连功能，只需要添加hotReload=True参数，
@@ -80,7 +79,7 @@ import json
 
 # 好友 search_friends
 # 获取自己的用户信息，返回自己的属性字典
-# print(itchat.search_friends(name='聂伟'))
+# print(itchat.search_friends(name='xx'))
 # 获取特定UserName的用户信息
 # itchat.search_friends(userName='@abcdefg1234567')
 # 获取任何一项等于name键值的用户
