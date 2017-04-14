@@ -6,6 +6,7 @@ import json
 
 # # 普通登陆
 # itchat.auto_login(hotReload=True)
+# print(itchat.search_chatrooms(name=u'亲们'))
 # 运行并保持在线状态
 # itchat.run()
 # # itchat也提供段时间内断线重连功能，只需要添加hotReload=True参数，
@@ -99,11 +100,6 @@ import json
 
 # 消息的接收
 # 注册文本消息，绑定到text_reply处理函数
-@itchat.msg_register(TEXT)
-def reply_text(msg):
-    from_text = msg['Text']
-    to_text = tuling(from_text)
-
 def tuling(info):
     appkey   = "e5ccc9c7c8834ec3b08940e290ff1559"
     url      = "http://www.tuling123.com/openapi/api?key=%s&info=%s"%(appkey,info)
@@ -122,14 +118,21 @@ def download_files(msg):
     msg['Text'](msg['FileName'])
     return '@%s@%s' % ({'Picture': 'img', 'Video': 'vid'}.get(msg['Type'], 'fil'), msg['FileName'])
 
+# 处理好友添加请求
 # @itchat.msg_register(FRIENDS)
 # def add_friend(msg):
 #     itchat.add_friend(**msg['Text']) # 该操作会自动将新好友的消息录入，不需要重载通讯录
-#     itchat.send_msg('Nice to meet you!', msg['RecommendInfo']['UserName'])
+#     itchat.send_msg('Nice to meet you!', msg['RecommendInfo']['UserName'])  # 加完好友后，给好友打个招呼
 
-# @itchat.msg_register(TEXT, isGroupChat=True)
-# def text_reply(msg):
-#     if msg['isAt']:
-#         itchat.send(u'@%s\u2005I received: %s' % (msg['ActualNickName'], msg['Content']), msg['FromUserName'])
+# 对于群聊天的回复
+# 建立一个群聊的用户组
+group = {'@@XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX':'XXXXXXX'}
+
+@itchat.msg_register(TEXT, isGroupChat=True)
+def group_text_reply(msg):
+    item = '@@XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'   # 所要针对某个群聊天的自动回复的群的ID
+    if item in group.keys():
+        itchat.send(u'%s' % tuling(msg['Text']), item)
+
 itchat.auto_login(hotReload=True)
 itchat.run()
